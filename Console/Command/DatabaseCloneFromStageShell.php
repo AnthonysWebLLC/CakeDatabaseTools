@@ -3,9 +3,9 @@ class DatabaseCloneFromStageShell extends Shell {
 	// Hard coded configuration vairables
 	// * These would be bad things to put in the repository, except we want the same configuration everywhere
 	// * Stage's WordPress database is kinda acting like code for us to reference due to WordPress's plugin architecture
-	public $stage_domain_mysql_login = Configure::read('stage_domain_mysql_login');
-	public $stage_domain_mysql_pass = Configure::read('stage_domain_mysql_pass');
-	public $stage_domain = Configure::read('stage_domain');
+	public $stage_domain_mysql_login = '';
+	public $stage_domain_mysql_pass = '';
+	public $stage_domain = '';
 
 	//var $uses = array('WpOption', 'WpPost', 'WpUser', 'User');
 	public $uses = array('User');
@@ -14,6 +14,11 @@ class DatabaseCloneFromStageShell extends Shell {
 		// Get domain from site's file structure
 		// * Expects Anthony's convention of naming the folder the site is in by domain name
 		$this->new_domain = substr(ROOT, max(strrpos(ROOT, '\\'), strrpos(ROOT, '/'))+1);
+
+		$this->stage_domain_mysql_login = Configure::read('stage_domain_mysql_login');
+		$this->stage_domain_mysql_pass = Configure::read('stage_domain_mysql_pass');
+		$this->stage_domain = Configure::read('stage_domain');
+
 		parent::initialize();
 	}
 
