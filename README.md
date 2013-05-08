@@ -13,7 +13,7 @@ Tools to assist with CakePHP Database managment
 
 ````php
     if (Configure::read('debug') > 0) {
-        CakePlugin::load('CakeDatabaseTools', array('bootstrap' => true));
-        //Also see See app/Plugin/CodingStandards/Config/bootstrap.php for other variables you can tweak
+        CakePlugin::load('CakeDatabaseTools');
+        // Also see See app/Plugin/CakeDatabaseTools/Config/bootstrap.php for other variables you can tweak
     }
 ````
