@@ -103,7 +103,7 @@ class DatabaseCloneFromStageShell extends Shell {
 		App::Uses('AuthComponent', 'Controller/Component');
 		$users = $this->User->find('all');
 		$password = Configure::read("database_clone_from_stage_users_password");
-		if($password == '4FEuwdwPkD64nNwA' OR $password == ''){
+		if ($password == '') {
 			throw new Exception("Invalid value of '$password' in config value database_clone_from_stage_users_password");
 		}
 		foreach($users AS $user){

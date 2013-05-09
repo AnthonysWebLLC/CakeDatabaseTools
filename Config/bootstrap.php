@@ -23,4 +23,4 @@ Configure::write('stage_domain_mysql_pass', 'password');
 /**
  * Place unique value for user's passwords to be set to after data clone
  */
-Configure::write('database_clone_from_stage_users_password', '4FEuwdwPkD64nNwA');
+Configure::write('database_clone_from_stage_users_password', '');
