@@ -106,10 +106,11 @@ class DatabaseCloneFromStageShell extends Shell {
 		if ($password == '') {
 			throw new Exception("Invalid value of '$password' in config value database_clone_from_stage_users_password");
 		}
+		$passwordHash = AuthComponent::password($password);
 		foreach($users AS $user){
 			$U = $user['User'];
 			$this->User->read(null, $U['id']);
-			$this->User->set('password', Configure::read("database_clone_from_stage_users_password"));
+			$this->User->set('password', $passwordHash);
 			if(!$this->User->save(null, false)){
 				throw new Exception ("Failure setting password for Cake user (Validation errors:".print_r($this->User->validationErrors, true).")");
 			}
